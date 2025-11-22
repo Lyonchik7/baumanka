@@ -23,7 +23,7 @@ void log(const string& message) {
 void createTasks() {
     ofstream file("tasks.txt");
 
-    cout << "Создание задач (пустое название для выхода):" << endl;
+    cout << "Создание задач :" << endl;
     log("Создание задач");
 
     while (true) {
@@ -227,3 +227,4 @@ int main() {
         }
     }
 }  
+
