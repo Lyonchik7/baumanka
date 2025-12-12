@@ -207,4 +207,5 @@ SELECT * FROM grades;
 SELECT * FROM attendance;
 
 -- заметки
+
 SELECT * FROM notes;
