@@ -1,22 +1,26 @@
-#include "Product.hpp"
+#include "Product.h"
+#include <iostream>
+#include <iomanip>
+
+using namespace std;
 
 Product::Product(int id, const string& n, double p, int qty)
     : productId(id), name(n), price(p), stockQuantity(qty) {}
 
-void Product::displayInfo() const {
-    cout << "Product: " << name << " | Price: " << price 
+void Product::display() const {
+    cout << "ID: " << productId << " | " << name 
+         << " | Price: " << fixed << setprecision(2) << price
          << " | Stock: " << stockQuantity << endl;
 }
 
-bool Product::decreaseStock(int quantity) {
-    if (quantity <= stockQuantity) {
-        stockQuantity -= quantity;
+bool Product::reduceStock(int amount) {
+    if (amount <= stockQuantity) {
+        stockQuantity -= amount;
         return true;
     }
     return false;
 }
 
-bool Product::increaseStock(int quantity) {
-    stockQuantity += quantity;
-    return true;
+void Product::increaseStock(int amount) {
+    stockQuantity += amount;
 }
