@@ -1,7 +1,9 @@
 #include <iostream>
 #include <memory>
-#include "DatabaseConnection.hpp"
-#include "User.hpp"
+#include <vector>
+#include <algorithm>
+#include "DatabaseConnection.h"
+#include "User.h"
 
 using namespace std;
 
@@ -12,14 +14,15 @@ int main() {
             "host=localhost dbname=online_store user=Leonid08=1234"
         );
         
-        cout << "=== ONLINE STORE ===\n";
+        cout << "ONLINE STORE SYSTEM\n";
+        cout << "===================\n";
         
-        // Простое меню
-        while (true) {
-            cout << "\n1. Admin login\n";
-            cout << "2. Customer login\n";
+        bool running = true;
+        while (running) {
+            cout << "\n1. Login as Admin\n";
+            cout << "2. Login as Customer\n";
             cout << "3. Exit\n";
-            cout << "Choice: ";
+            cout << "Select: ";
             
             int choice;
             cin >> choice;
@@ -27,18 +30,23 @@ int main() {
             if (choice == 3) break;
             
             // Авторизация
-            string email = (choice == 1) ? "admin@store.com" : "customer1@store.com";
+            string email;
+            if (choice == 1) email = "admin@store.com";
+            else email = "customer1@store.com";
+            
             auto user = User::authenticate(*db, email, "123");
             
             if (user) {
-                user->displayMenu();
+                cout << "\nWelcome, " << user->getName() << "!\n";
+                user->showMenu();
             }
         }
+        
+        cout << "Goodbye!\n";
+        return 0;
         
     } catch (const exception& e) {
         cerr << "Error: " << e.what() << endl;
         return 1;
     }
-    
-    return 0;
 }
