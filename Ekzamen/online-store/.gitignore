@@ -1,22 +1,132 @@
+# Файлы сборки и компиляции
+build/
+cmake-build-*/
+CMakeCache.txt
+CMakeFiles/
+Makefile
+cmake_install.cmake
+compile_commands.json
+*.cmake
+
 # Исполняемые файлы
 online_store
 *.exe
+*.out
+*.app
 
 # Объектные файлы
 *.o
 *.obj
+*.pch
 
-# Директории сборки
-build/
-cmake-build-*/
+# Библиотеки
+*.so
+*.so.*
+*.dylib
+*.dll
+*.a
+*.lib
 
 # IDE файлы
 .vscode/
 .idea/
 *.swp
+*.swo
+*~
+.DS_Store
+
+# Среда CLion
+.idea/
+cmake-build-*/
+
+# Среда Visual Studio
+*.vcxproj
+*.vcxproj.filters
+*.vcxproj.user
+*.sln
+*.suo
+*.opensdf
+*.sdf
+*.db
+*.opendb
 
 # Базы данных
 *.db
+*.sqlite
+*.sqlite3
 
-# Логи
+# Логи и временные файлы
 *.log
+*.tmp
+*.temp
+*.pid
+*.pid.lock
+
+# Отчёты сборки
+report.html
+coverage/
+*.gcda
+*.gcno
+
+# Документация Doxygen
+docs/html/
+docs/latex/
+Doxyfile
+
+# Пакеты Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Тестовые данные
+test_data/
+*.testdb
+
+# Системные файлы
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Резервные копии
+*.bak
+*.backup
+*.old
+
+# Архивы
+*.zip
+*.tar
+*.gz
+*.7z
+
+# Пользовательские настройки
+config.ini
+settings.json
+.env
+.env.local
+
+# Файлы базы данных PostgreSQL (локальные)
+*.pgdata/
+postgresql_data/
+
+# Файлы отладки
+core
+core.*
+*.core
+
+# Профилировщик
+callgrind.out.*
+massif.out.*
+
+# Сгенерированные отчёты (кроме примера)
+reports/*.csv
+!reports/audit_report.csv
+
+# Временные SQL файлы
+*.sql~
+*.sql.tmp
+
+# Файлы кэша
+.cache/
+
+# Файлы блокировки
+*.lock
