@@ -73,3 +73,36 @@
 ### Предварительные требования
 ```bash
 # Ubuntu/Debian
+sudo apt-get update
+sudo apt-get install postgresql postgresql-contrib libpqxx-dev cmake g++
+
+# macOS (Homebrew)
+brew install postgresql libpqxx cmake
+
+# Запуск PostgreSQL (если не запущен)
+sudo systemctl start postgresql  # Linux
+brew services start postgresql   # macOS
+
+# Создание базы данных и пользователя
+sudo -u postgres psql -c "CREATE DATABASE online_store;"
+sudo -u postgres psql -c "CREATE USER store_admin WITH PASSWORD 'secure_password123';"
+sudo -u postgres psql -c "GRANT ALL PRIVILEGES ON DATABASE online_store TO store_admin;"
+
+# Запуск PostgreSQL (если не запущен)
+sudo systemctl start postgresql  # Linux
+brew services start postgresql   # macOS
+
+# Создание базы данных и пользователя
+sudo -u postgres psql -c "CREATE DATABASE online_store;"
+sudo -u postgres psql -c "CREATE USER store_admin WITH PASSWORD 'secure_password123';"
+sudo -u postgres psql -c "GRANT ALL PRIVILEGES ON DATABASE online_store TO store_admin;"
+
+# Переход в директорию с SQL скриптами
+cd sql/
+
+# Создание таблиц и структуры
+psql -h localhost -U store_admin -d online_store -f tables.sql
+psql -h localhost -U store_admin -d online_store -f functions.sql
+psql -h localhost -U store_admin -d online_store -f triggers.sql
+psql -h localhost -U store_admin -d online_store -f procedures.sql
+psql -h localhost -U store_admin -d online_store -f sample_data.sql
